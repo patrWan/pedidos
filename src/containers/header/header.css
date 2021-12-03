@@ -4,7 +4,7 @@
     background: #fff;
 }
 
-.header-content {
+.header-content { 
     flex: 1;
     display: flex;
     justify-content: center;
