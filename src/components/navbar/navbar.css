@@ -3,6 +3,8 @@
     justify-content: space-between;
     align-items: center;
     padding: 2rem 6rem;
+    background: #282c34;
+    opacity: 1;
 }
 .navbar-links {
     flex: 1;
