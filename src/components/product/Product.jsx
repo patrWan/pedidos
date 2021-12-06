@@ -28,7 +28,7 @@ const Product = (props) => {
             </Typography>
         </CardContent>
         <CardActions>
-            <Button size="large" color="success">$170</Button>
+            <Button size="large" color="success" >$170</Button>
             <Button size="small" variant="contained">Agregar</Button>
         </CardActions>
         </Card>

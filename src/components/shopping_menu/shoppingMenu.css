@@ -1,0 +1,36 @@
+.shoppingMenu {
+    min-width: 280px;
+    padding: 1rem;
+}
+
+.shoppingMenu-main {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.shoppingMenu-main_title {
+    font-family : 'Roboto', sans-serif;
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+}
+
+.shoppingMenu-main_products {
+    font-family : 'Roboto', sans-serif;
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+}
+
+.shoppingMenu-main_actions {
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+}
+
+@media screen and (max-width : 768px) {
+    .shoppingMenu {
+        display: none;
+    }
+}

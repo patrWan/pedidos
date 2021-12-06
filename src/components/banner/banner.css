@@ -3,25 +3,26 @@
     flex: 1;
     width: 100%;
     background-image: url(../../assets/bg.png);
-    background-repeat:repeat-y;
+    background-repeat:repeat-x;
     -webkit-background-size:cover;
     -moz-background-size:cover;
     -o-background-size:cover;
     background-size:cover;
     background-position:center;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: flex-end;
     justify-content: flex-end;
     
 }
 
 .banner-container {
+    background-color: lemonchiffon;
     display: flex;
     justify-content: center;
-    width: 800px;
+    width: 70%;
     height: max-content;
-    margin-right: 12rem;
+    margin-right: 1rem;
     padding: 1rem;
 
 }
@@ -34,11 +35,17 @@
     
 }
 
+.banner-shoppingMenu {
+    width: 40%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}
+
 @media screen and (max-width : 1050px) {
     .banner {
-        width: 100%;
-        background-position:right;
-        
+        background-position:initial;
+        flex-direction: column;
     }
 
     .banner-container {
@@ -51,3 +58,4 @@
         align-items: center;
     }
 }
+

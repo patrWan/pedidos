@@ -8,12 +8,16 @@ import product_sample_3 from '../../assets/hallulla.jpg';
 import product_sample_4 from '../../assets/pack.jpg';
 
 import {Product} from '../../components';
+import {ShoppingMenu} from '../../components';
 
 import './banner.css'
 import { Stack } from '@mui/material';
 const Banner = () => {
     return (
         <div className="banner">
+            <div className="banner-shoppingMenu">
+                <ShoppingMenu/>
+            </div>
             <div className="banner-container">
                     <Product product_img={product_sample_1} product_title={"Producto 1"}/>
                     <Product product_img={product_sample_2} product_title={"Producto 2"}/>
