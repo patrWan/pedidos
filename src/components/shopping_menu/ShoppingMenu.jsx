@@ -9,14 +9,35 @@ const ShoppingMenu = () => {
                     Carrito de compras
                 </div>
                 <div className="shoppingMenu-main_products">
-                    productos
+                    <table border="1" cellpadding="1">
+                        <thead>
+                            <tr>
+                                <td>Producto</td>
+                                <td>Cantidad</td>
+                                <td>Precio Unitario</td>
+                                <td>SubTotal</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td align="center">Producto 1</td>
+                                <td align="center">6</td>
+                                <td align="center">$170</td>
+                                <td align="center">${ 6 * 170}</td>
+                            </tr>
+                            <tr>
+                                <td colSpan="3" align="center"><b>TOTAL</b></td>
+                                <td align="center"><b>${ 6 * 170}</b></td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
                 <div className="shoppingMenu-main_actions">
                     <Button variant="outlined">Confirmar Pedido</Button>
                 </div>
-                
+
             </Paper>
-            
+
         </div>
     )
 }

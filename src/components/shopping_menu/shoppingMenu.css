@@ -1,5 +1,6 @@
 .shoppingMenu {
-    min-width: 280px;
+    min-width: 400px;
+    height: max-content;
     padding: 1rem;
 }
 
@@ -14,6 +15,8 @@
     padding: 1rem;
     display: flex;
     justify-content: center;
+
+    height: 20%;
 }
 
 .shoppingMenu-main_products {
@@ -21,12 +24,16 @@
     padding: 1rem;
     display: flex;
     justify-content: center;
+    height: 55%;
 }
 
 .shoppingMenu-main_actions {
     padding: 1rem;
     display: flex;
     justify-content: center;
+    justify-self: flex-end;
+
+    height: 25%;
 }
 
 @media screen and (max-width : 768px) {
