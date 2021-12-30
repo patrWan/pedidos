@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Paper from '@mui/material/Paper';
 
 import banner from '../../assets/banner_open.png';
@@ -12,17 +12,29 @@ import {ShoppingMenu} from '../../components';
 
 import './banner.css'
 import { Stack } from '@mui/material';
+
+import { useContext } from 'react';
+import ShoppingCartContext from '../../context/shoppingCart/ShoppingCartContext';
+
 const Banner = () => {
+
+    const {products, getShoppingCart} = useContext(ShoppingCartContext);
+
+    useEffect(() => {
+        getShoppingCart();
+        console.log(products);
+    }, [products])
+
     return (
         <div className="banner">
             <div className="banner-shoppingMenu">
                 <ShoppingMenu/>
             </div>
             <div className="banner-container">
-                    <Product product_img={product_sample_1} product_title={"Producto 1"}/>
-                    <Product product_img={product_sample_2} product_title={"Producto 2"}/>
-                    <Product product_img={product_sample_3} product_title={"Producto 3"}/>
-                    <Product product_img={product_sample_4} product_title={"Producto 4"}/>
+                    {console.log(products.length)}
+                    {products.map((product) => (
+                        <Product product_img={product.imageUrl} product_title={product.title}/>
+                    ))}
             </div>
         </div>
     )

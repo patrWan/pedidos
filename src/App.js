@@ -1,18 +1,22 @@
 import React from 'react';
-import  {Header, Content, Footer } from './containers';
-import  {Product, Navbar } from './components';
+import { Header, Content, Footer } from './containers';
+import { Product, Navbar } from './components';
 import './App.css';
+
+import ShoppingCartState from './context/shoppingCart/ShoppingCartState';
 
 function App() {
   return (
-    <div className="App">
+    <ShoppingCartState>
+      <div className="App">
         <div className="gradient__bg">
-          <Navbar/>
-          <Header/>
+          <Navbar />
+          <Header />
         </div>
-        <Content/>
-        <Footer/>
-    </div>
+        <Content />
+        <Footer />
+      </div>
+    </ShoppingCartState>
   );
 }
 
