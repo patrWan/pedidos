@@ -14,16 +14,16 @@ import './banner.css'
 import { Stack } from '@mui/material';
 
 import { useContext } from 'react';
-import ShoppingCartContext from '../../context/shoppingCart/ShoppingCartContext';
+import ProductContext from '../../context/product/ProductContext';
 
 const Banner = () => {
 
-    const {products, getShoppingCart} = useContext(ShoppingCartContext);
+    const {products, getProducts} = useContext(ProductContext);
 
     useEffect(() => {
-        getShoppingCart();
+        getProducts();
         console.log(products);
-    }, [products])
+    }, [])
 
     return (
         <div className="banner">
@@ -31,9 +31,8 @@ const Banner = () => {
                 <ShoppingMenu/>
             </div>
             <div className="banner-container">
-                    {console.log(products.length)}
                     {products.map((product) => (
-                        <Product product_img={product.imageUrl} product_title={product.title}/>
+                        <Product product={product} key={product.id}/>
                     ))}
             </div>
         </div>

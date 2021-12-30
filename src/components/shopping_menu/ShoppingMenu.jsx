@@ -1,7 +1,16 @@
 import { Button, Paper } from '@mui/material'
-import React from 'react'
+import React, { useContext, useEffect } from 'react'
 import './shoppingMenu.css'
+
+import ShoppingCartContext from '../../context/shoppingCart/ShoppingCartContext';
+
 const ShoppingMenu = () => {
+
+    const { shoppingList } = useContext(ShoppingCartContext);
+
+    useEffect(() => {
+    }, [])
+
     return (
         <div className="shoppingMenu">
             <Paper className="shoppingMenu-main" elevation={24}>
@@ -19,15 +28,21 @@ const ShoppingMenu = () => {
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td align="center">Producto 1</td>
-                                <td align="center">6</td>
-                                <td align="center">$170</td>
-                                <td align="center">${ 6 * 170}</td>
-                            </tr>
+                            {
+                                shoppingList.map(p => {
+                                    return (
+                                        <tr key={p.idProducto}>
+                                            <td align="center">{p.title}</td>
+                                            <td align="center">{p.quantity}</td>
+                                            <td align="center">{p.price}</td>
+                                            <td align="center">{p.subTotal}</td>
+                                        </tr>
+                                    )
+                                })
+                            }
                             <tr>
                                 <td colSpan="3" align="center"><b>TOTAL</b></td>
-                                <td align="center"><b>${ 6 * 170}</b></td>
+                                <td align="center"><b>${0}</b></td>
                             </tr>
                         </tbody>
                     </table>
