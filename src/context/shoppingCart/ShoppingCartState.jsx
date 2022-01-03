@@ -6,17 +6,7 @@ import ShoppingCartContext from './ShoppingCartContext';
 const ShoppingCart = (props) => {
 
     const initialState = {
-        shoppingList: [
-            {
-                "idProducto": '',
-                "title": '',
-                "price": '',
-                "quantity": null,
-                "subTotal": '',
-            }
-
-        ],
-        selectedUser: null,
+        shoppingList: [],
     }
 
     const [state, dispatch] = useReducer(ShoppingCartReducer, initialState)
@@ -43,11 +33,20 @@ const ShoppingCart = (props) => {
 
     }
 
+    const deleteProduct = async (product) => {
+        console.log('delete product state => ', product);
+        dispatch({
+            type: 'DELETE_PRODUCT',
+            payload: product,
+        })
+    }
+
     return (
         <ShoppingCartContext.Provider value={{
             shoppingList: state.shoppingList,
             selectedUser: state.selectedUser,
             addProduct,
+            deleteProduct
         }}>
             {props.children}
         </ShoppingCartContext.Provider>

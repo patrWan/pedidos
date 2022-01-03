@@ -6,7 +6,7 @@ import ShoppingCartContext from '../../context/shoppingCart/ShoppingCartContext'
 
 const ShoppingMenu = () => {
 
-    const { shoppingList } = useContext(ShoppingCartContext);
+    const { shoppingList, deleteProduct } = useContext(ShoppingCartContext);
 
     useEffect(() => {
     }, [])
@@ -15,16 +15,17 @@ const ShoppingMenu = () => {
         <div className="shoppingMenu">
             <Paper className="shoppingMenu-main" elevation={24}>
                 <div className="shoppingMenu-main_title">
-                    Carrito de compras
+                    Carrito de compras ({shoppingList.length})
                 </div>
                 <div className="shoppingMenu-main_products">
-                    <table border="1" cellPadding="1">
+                    <table border="1" cellPadding="1" className="table">
                         <thead>
                             <tr>
                                 <td>Producto</td>
                                 <td>Cantidad</td>
                                 <td>Precio Unitario</td>
                                 <td>SubTotal</td>
+                                <td>Acciones</td>
                             </tr>
                         </thead>
                         <tbody>
@@ -33,9 +34,14 @@ const ShoppingMenu = () => {
                                     return (
                                         <tr key={p.idProducto}>
                                             <td align="center">{p.title}</td>
-                                            <td align="center">{p.quantity}</td>
+                                            <td align="center">
+                                                {p.quantity}
+                                            </td>
                                             <td align="center">{p.price}</td>
                                             <td align="center">{p.subTotal}</td>
+                                            <td align="center">
+                                                <button type="button" className="btn btn-outline-danger btn-sm" onClick={() => deleteProduct(p)}>Eliminar</button>
+                                            </td>
                                         </tr>
                                     )
                                 })
