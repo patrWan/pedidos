@@ -3,6 +3,7 @@ import logo from '../../assets/logo.png';
 
 //material ui imports
 import Button from '@mui/material/Button';
+import Modal from '../modal/Modal';
 //icons imports
 import { MdClose } from "react-icons/md";
 import { MdMenu } from "react-icons/md";
@@ -29,8 +30,8 @@ const Navbar = () => {
                 </div>
             </div>
             <div className="navbar-sign">
-                <p>Iniciar Sesión</p>
-                <Button variant="contained">Registrate</Button>
+                <p>Registrate</p>
+                <Modal/>
             </div>
             <div className="navbar-menu">
                 {toggleMenu
@@ -42,8 +43,8 @@ const Navbar = () => {
                         <div className="navbar-menu_container-links">
                             <Menu/>
                             <div className="navbar-menu_container-links-sign">
-                                <p>Iniciar Sesión</p>
-                                <Button variant="contained">Registrate</Button>
+                                <p>Registrate</p>
+                                <Modal/>
                             </div>
                         </div>
                     </div>
