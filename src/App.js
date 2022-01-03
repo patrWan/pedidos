@@ -5,21 +5,24 @@ import './App.css';
 
 import ProductState from './context/product/ProductState';
 import ShoppingCartState from './context/shoppingCart/ShoppingCartState';
+import UserState from './context/user/UserState';
 
 function App() {
   return (
-    <ProductState>
-      <ShoppingCartState>
-        <div className="App">
-          <div className="gradient__bg">
-            <Navbar />
-            <Header />
+    <UserState>
+      <ProductState>
+        <ShoppingCartState>
+          <div className="App">
+            <div className="gradient__bg">
+              <Navbar />
+              <Header />
+            </div>
+            <Content />
+            <Footer />
           </div>
-          <Content />
-          <Footer />
-        </div>
-      </ShoppingCartState>
-    </ProductState>
+        </ShoppingCartState>
+      </ProductState>
+    </UserState>
   );
 }
 
