@@ -21,7 +21,7 @@ const ShoppingMenu = () => {
                     <table border="1" cellPadding="1" className="table">
                         <thead>
                             <tr>
-                                <th class="text-center">Producto</th>
+                                <th className="text-center">Producto</th>
                                 <th>Cantidad</th>
                                 <th>Prec. Unit.</th>
                                 <th>SubTotal</th>
