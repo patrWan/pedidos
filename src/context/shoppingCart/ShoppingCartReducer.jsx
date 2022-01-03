@@ -29,7 +29,6 @@ export default (state, action) => {
             }
 
         case DELETE_PRODUCT:
-            const itemIndex = state.shoppingList.indexOf(payload);
             console.log('delete product reducer => ', payload.idProducto);
             return {
                 ...state,

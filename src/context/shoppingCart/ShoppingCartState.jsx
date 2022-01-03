@@ -11,13 +11,8 @@ const ShoppingCart = (props) => {
 
     const [state, dispatch] = useReducer(ShoppingCartReducer, initialState)
 
-    const getShoppingCart = async () => {
-    }
-
     const addProduct = async (product) => {
-        console.log(state.shoppingList)
-        const new_list = state.shoppingList;
-
+        
         const newProduct = {
             "idProducto": product.id,
             "title": product.title,

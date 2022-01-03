@@ -1,6 +1,6 @@
 import React from 'react';
 import { Header, Content, Footer } from './containers';
-import { Product, Navbar } from './components';
+import { Navbar } from './components';
 import './App.css';
 
 import ProductState from './context/product/ProductState';

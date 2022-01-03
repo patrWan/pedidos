@@ -1,7 +1,4 @@
 import React from 'react'
-import banner from '../../assets/banner.png';
-
-import Paper from '@mui/material/Paper';
 
 import {Banner} from '../../components';
 
