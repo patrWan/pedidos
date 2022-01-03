@@ -16,23 +16,28 @@ export default (state, action) => {
                         {
                             ...item,
                             quantity: item.quantity + 1,
-                            subTotal: (item.quantity + 1) * item.price
+                            subTotal: (item.quantity + 1) * item.price,
                         
                         }
                         : item
                     ),
+                    total : state.total + payload.price
                 }
             }
             return {
                 ...state,
-                shoppingList:  [...state.shoppingList, payload]
+                shoppingList:  [...state.shoppingList, payload],
+                total : state.total + payload.price
             }
 
         case DELETE_PRODUCT:
             console.log('delete product reducer => ', payload.idProducto);
+            const itemToDelete = state.shoppingList.find(product => product.idProducto === payload.idProducto);
             return {
                 ...state,
-                shoppingList : state.shoppingList.filter(product => product.idProducto !== payload.idProducto)
+                total : state.total - itemToDelete.subTotal,
+                shoppingList : state.shoppingList.filter(product => product.idProducto !== payload.idProducto),
+                
             }
         default:
             return state;

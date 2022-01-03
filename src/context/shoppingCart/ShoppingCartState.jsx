@@ -7,12 +7,13 @@ const ShoppingCart = (props) => {
 
     const initialState = {
         shoppingList: [],
+        total : 0
     }
 
     const [state, dispatch] = useReducer(ShoppingCartReducer, initialState)
 
     const addProduct = async (product) => {
-        
+
         const newProduct = {
             "idProducto": product.id,
             "title": product.title,
@@ -39,7 +40,7 @@ const ShoppingCart = (props) => {
     return (
         <ShoppingCartContext.Provider value={{
             shoppingList: state.shoppingList,
-            selectedUser: state.selectedUser,
+            total: state.total,
             addProduct,
             deleteProduct
         }}>
