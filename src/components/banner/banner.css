@@ -13,11 +13,11 @@
     flex-direction: row;
     align-items: flex-end;
     justify-content: flex-end;
-    
+    background-color: #393E46;
 }
 
 .banner-container {
-    background-color: lemonchiffon;
+    background-color: #393E46;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -37,6 +37,7 @@
 }
 
 .banner-shoppingMenu {
+    background-color: #393E46;
     width: 50%;
     height: 100%;
     display: flex;

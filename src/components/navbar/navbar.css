@@ -3,8 +3,11 @@
     justify-content: space-between;
     align-items: center;
     padding: 2rem 6rem;
-    background: #282c34;
     opacity: 1;
+
+    background-image: radial-gradient( circle farthest-corner at 12.3% 19.3%,  rgba(85,88,218,1) 0%, rgba(95,209,249,1) 100.2% );
+
+
 }
 .navbar-links {
     flex: 1;
@@ -34,7 +37,7 @@
 .navbar-links_container p,
 .navbar-sign p,
 .navbar-menu_container p {
-    color: #fff;
+    color: #F0ECE3;
     font-family: var(--font-family);
     font-weight: 700;
     font-size: 18px;
@@ -42,6 +45,10 @@
     text-transform: capitalize;
     margin: 0 1rem;
     cursor: pointer;
+    
+}
+a:hover {
+    color: #fff;
 }
 
 .navbar-menu{
