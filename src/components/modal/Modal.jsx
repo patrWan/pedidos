@@ -31,8 +31,6 @@ export default function FormDialog() {
       });
   };
 
-  console.log(watch("email"));
-
   const handleClickOpen = () => {
     setOpen(true);
   };

@@ -1,9 +1,12 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import logo from '../../assets/logo.png';
 
 //material ui imports
 import Button from '@mui/material/Button';
+
+//Modals imports
 import Modal from '../modal/Modal';
+import PerfilUsuarioModal from '../PerfilUsuarioModal/PerfilUsuarioModal';
 //icons imports
 import { MdClose } from "react-icons/md";
 import { MdMenu } from "react-icons/md";
@@ -11,7 +14,8 @@ import './navbar.css';
 
 import { auth } from '../../firebase/firebaseConfig';
 import { onAuthStateChanged, signOut } from "firebase/auth";
-import { useEffect } from 'react';
+
+import UserContext from '../../context/user/UserContext';
 
 const Menu = () => (
     <>
@@ -22,21 +26,26 @@ const Menu = () => (
 )
 
 const Navbar = () => {
+    const currentUser = auth.currentUser;
+
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
 
     const [toggleMenu, setToggleMenu] = useState(false);
 
-    useEffect(() => {
+    const { login, userFrom } = useContext(UserContext);
 
-    },[])
+    useEffect(() => {
+        console.log("Cambio el estado de user");
+        setUser(currentUser);
+        login(user);
+
+    },[user]);
 
     onAuthStateChanged(auth, (user) => {
         if (user) {
             // User is signed in, see docs for a list of available properties
             // https://firebase.google.com/docs/reference/js/firebase.User
-            const uid = user.uid;
-            console.log("Usuario conectado =>", uid);
             setUser(user);
             setLoading(false);
             // ...
@@ -72,8 +81,9 @@ const Navbar = () => {
                 loading ? <p>Cargado datos ...</p> : 
                 user ?
                     <>
-                        <p>{user.email}</p>
-                        <Button variant="contained" onClick={logOut}>Cerrar Sesión</Button>
+                        <p>Bienvenido/a, {userFrom.displayName}</p>
+                        <PerfilUsuarioModal user={user}/>
+                        <Button variant="contained" color="error" onClick={logOut}>Cerrar Sesión</Button>
                     </>
 
                     :
