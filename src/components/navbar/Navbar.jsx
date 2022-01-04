@@ -11,6 +11,7 @@ import './navbar.css';
 
 import { auth } from '../../firebase/firebaseConfig';
 import { onAuthStateChanged, signOut } from "firebase/auth";
+import { useEffect } from 'react';
 
 const Menu = () => (
     <>
@@ -22,8 +23,13 @@ const Menu = () => (
 
 const Navbar = () => {
     const [user, setUser] = useState(null);
+    const [loading, setLoading] = useState(true);
 
     const [toggleMenu, setToggleMenu] = useState(false);
+
+    useEffect(() => {
+
+    },[])
 
     onAuthStateChanged(auth, (user) => {
         if (user) {
@@ -32,7 +38,7 @@ const Navbar = () => {
             const uid = user.uid;
             console.log("Usuario conectado =>", uid);
             setUser(user);
-
+            setLoading(false);
             // ...
         } else {
             // User is signed out
@@ -62,13 +68,16 @@ const Navbar = () => {
                 </div>
             </div>
             <div className="navbar-sign">
-                {user ?
+                {
+                loading ? <p>Cargado datos ...</p> : 
+                user ?
                     <>
-                        <p>{user.uid}</p>
+                        <p>{user.email}</p>
                         <Button variant="contained" onClick={logOut}>Cerrar Sesión</Button>
                     </>
 
                     :
+
                     <>
                         <p>Registrate</p>
                         <Modal />
