@@ -7,6 +7,9 @@ import ProductState from './context/product/ProductState';
 import ShoppingCartState from './context/shoppingCart/ShoppingCartState';
 import UserState from './context/user/UserState';
 
+import { auth } from './firebase/firebaseConfig';
+import { onAuthStateChanged } from "firebase/auth";
+
 function App() {
   return (
     <UserState>

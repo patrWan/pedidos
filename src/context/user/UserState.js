@@ -4,11 +4,9 @@ import UserReducer from './UserReducer';
 import UserContext from './UserContext';
 
 const UserState = (props) => {
-
     const initialState = {
-        user: [],
+        user: null,
     }
-
     const [state, dispatch] = useReducer(UserReducer, initialState)
 
     const login = (user) => {

@@ -68,7 +68,6 @@ export default function FormDialog() {
             />
 
             <TextField
-              autoFocus
               margin="dense"
               id="password"
               label="Contraseña"
