@@ -11,6 +11,7 @@ import { useForm } from "react-hook-form";
 //Firebase
 import { auth } from '../../firebase/firebaseConfig';
 import { updateProfile } from "firebase/auth";
+import { Avatar, MenuItem } from '@mui/material';
 
 export default function PerfilUsuarioModal(props) {
     const { user } = props;
@@ -41,10 +42,11 @@ export default function PerfilUsuarioModal(props) {
 
 
     return (
-        <div>
-            <Button variant="text" color='warning' onClick={handleClickOpen}>
+        <div style={{width : '100%'}}>
+            <MenuItem variant="text" color='warning' onClick={handleClickOpen}>
+            <Avatar /> 
                 Mi Perfil
-            </Button>
+            </MenuItem>
             <Dialog open={open} onClose={handleClose}>
                 <DialogTitle>Mi Perfil</DialogTitle>
                 <DialogContent>

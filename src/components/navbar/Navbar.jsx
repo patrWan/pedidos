@@ -7,10 +7,14 @@ import Button from '@mui/material/Button';
 //Modals imports
 import Modal from '../modal/Modal';
 import PerfilUsuarioModal from '../PerfilUsuarioModal/PerfilUsuarioModal';
+
 //icons imports
 import { MdClose } from "react-icons/md";
 import { MdMenu } from "react-icons/md";
 import './navbar.css';
+
+//
+import UserMenu from '../userMenu/UserMenu';
 
 import { auth } from '../../firebase/firebaseConfig';
 import { onAuthStateChanged, signOut } from "firebase/auth";
@@ -81,9 +85,7 @@ const Navbar = () => {
                 loading ? <p>Cargado datos ...</p> : 
                 user ?
                     <>
-                        <p>Bienvenido/a, {userFrom.displayName}</p>
-                        <PerfilUsuarioModal user={user}/>
-                        <Button variant="contained" color="error" onClick={logOut}>Cerrar Sesión</Button>
+                        Bienvenido/a, <UserMenu user={userFrom} PerfilUsuarioModal={PerfilUsuarioModal} logOut={logOut}/>
                     </>
 
                     :
