@@ -56,6 +56,7 @@ const Navbar = () => {
         } else {
             // User is signed out
             console.log("Usuario desconectado =>");
+            setLoading(false);
         }
     });
 

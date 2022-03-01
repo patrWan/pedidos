@@ -29,6 +29,22 @@ const ShoppingCart = (props) => {
 
     }
 
+    const addQuantity = async (product) => {
+        dispatch({
+            type: 'ADD_QUANTITY',
+            payload: product,
+        })
+
+    }
+
+    const removeQuantity = async (product) => {
+        dispatch({
+            type: 'REMOVE_QUANTITY',
+            payload: product,
+        })
+
+    }
+
     const deleteProduct = async (product) => {
         console.log('delete product state => ', product);
         dispatch({
@@ -42,7 +58,9 @@ const ShoppingCart = (props) => {
             shoppingList: state.shoppingList,
             total: state.total,
             addProduct,
-            deleteProduct
+            deleteProduct,
+            addQuantity,
+            removeQuantity
         }}>
             {props.children}
         </ShoppingCartContext.Provider>

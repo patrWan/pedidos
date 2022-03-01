@@ -6,7 +6,7 @@ import ShoppingCartContext from '../../context/shoppingCart/ShoppingCartContext'
 
 const ShoppingMenu = () => {
 
-    const { shoppingList, deleteProduct, total } = useContext(ShoppingCartContext);
+    const { shoppingList, deleteProduct, total, addQuantity, removeQuantity } = useContext(ShoppingCartContext);
 
     useEffect(() => {
     }, [])
@@ -35,7 +35,9 @@ const ShoppingMenu = () => {
                                         <tr key={p.idProducto}>
                                             <td align="center" width={150}>{p.title}</td>
                                             <td align="center">
+                                                <button onClick={()=>removeQuantity(p)}>-</button>
                                                 {p.quantity}
+                                                <button onClick={()=>addQuantity(p)}>+</button>
                                             </td>
                                             <td align="center">${p.price}</td>
                                             <td align="center">${p.subTotal}</td>

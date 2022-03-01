@@ -12,6 +12,7 @@ import ShoppingCartContext from '../../context/shoppingCart/ShoppingCartContext'
 import UserContext from '../../context/user/UserContext';
 
 const Product = (props) => {
+    
     const {product} = props;
 
     const {addProduct} = useContext(ShoppingCartContext);
