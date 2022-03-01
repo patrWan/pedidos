@@ -9,10 +9,14 @@ import './product.css';
 
 import ShoppingCartContext from '../../context/shoppingCart/ShoppingCartContext';
 
+import UserContext from '../../context/user/UserContext';
+
 const Product = (props) => {
     const {product} = props;
 
     const {addProduct} = useContext(ShoppingCartContext);
+
+    const { userFrom } = useContext(UserContext);
 
   return (
     <div>
@@ -34,7 +38,14 @@ const Product = (props) => {
         </CardContent>
         <CardActions>
             <Button size="large" color="success" >${product.price}</Button>
-            <Button size="small" variant="contained" onClick={() => addProduct(product)}>Agregar</Button>
+            
+            {userFrom ? 
+            <Button size="small" variant="contained" onClick={() => addProduct(product)}>Agregar</Button> 
+            : 
+            <Typography gutterBottom variant="body2" component="div" color="Highlight" fontSize={16}>
+                Inicie sesión para utilizar las funciones de usuario.
+            </Typography>
+            }
         </CardActions>
         </Card>
     </div>
