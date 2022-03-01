@@ -35,7 +35,7 @@ const ShoppingMenu = () => {
                                         <tr key={p.idProducto}>
                                             <td align="center" width={150}>{p.title}</td>
                                             <td align="center">
-                                                <button onClick={()=>removeQuantity(p)}>-</button>
+                                                <button onClick={()=>removeQuantity(p)} disabled={p.quantity > 0 ? false : true}>-</button>
                                                 {p.quantity}
                                                 <button onClick={()=>addQuantity(p)}>+</button>
                                             </td>
