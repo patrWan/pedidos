@@ -12,10 +12,15 @@ import { useForm, Controller } from "react-hook-form";
 import { auth } from '../../firebase/firebaseConfig';
 import { signInWithEmailAndPassword } from "firebase/auth";
 
+import Alert from '../alert/Alert';
+
 export default function FormDialog() {
   const [open, setOpen] = React.useState(false);
+  const [error, setError] = React.useState(false);
+  const [message, setMessage] = React.useState('');
 
   const { register, handleSubmit, watch, formState: { errors }, control } = useForm();
+
   const onSubmit = data => {
     signInWithEmailAndPassword(auth, data.email, data.password)
       .then((userCredential) => {
@@ -28,6 +33,9 @@ export default function FormDialog() {
         const errorCode = error.code;
         const errorMessage = error.message;
         alert(errorMessage);
+
+        setMessage(errorMessage);
+        setError(true);
       });
   };
 
@@ -37,6 +45,8 @@ export default function FormDialog() {
 
   const handleClose = () => {
     setOpen(false);
+    setMessage('');
+    setError(false);
   };
 
   return (
@@ -44,12 +54,15 @@ export default function FormDialog() {
       <Button variant="contained" onClick={handleClickOpen}>
         Iniciar Sesión
       </Button>
-      <Dialog open={open} onClose={handleClose}>
+      <Dialog open={open}  onClose={handleClose}>
         <DialogTitle>Inicia Sesión</DialogTitle>
         <DialogContent>
           <DialogContentText>
             Ingrese su correo registrado y contraseña para poder acceder a las opciones de pedidos.
           </DialogContentText>
+
+          <Alert open={error} setOpen={setError} message={message}/>
+
           <form onSubmit={handleSubmit(onSubmit)} id="loginForm">
 
 
@@ -62,6 +75,7 @@ export default function FormDialog() {
               type="email"
               fullWidth
               variant="standard"
+              required
               {...register("email")}
             />
 
@@ -73,6 +87,7 @@ export default function FormDialog() {
               fullWidth
               variant="standard"
               name='password'
+              required
               {...register("password")}
             />
           </form>
