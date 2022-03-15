@@ -4,12 +4,29 @@ import './shoppingMenu.css'
 
 import ShoppingCartContext from '../../context/shoppingCart/ShoppingCartContext';
 
+import { db } from '../../firebase/firebaseConfig';
+import { collection, addDoc } from "firebase/firestore";
+
 const ShoppingMenu = () => {
 
     const { shoppingList, deleteProduct, total, addQuantity, removeQuantity } = useContext(ShoppingCartContext);
 
     useEffect(() => {
     }, [])
+
+    async function confirmOrder() {
+
+        try {
+            const docRef = await addDoc(collection(db, "orders"), {
+                id: "001",
+                date: "15/03/2022",
+                total: 1815
+            });
+            console.log("Document written with ID: ", docRef.id);
+        } catch (e) {
+            console.error("Error adding document: ", e);
+        }
+    }
 
     return (
         <div className="shoppingMenu">
@@ -35,9 +52,9 @@ const ShoppingMenu = () => {
                                         <tr key={p.idProducto}>
                                             <td align="center" width={150}>{p.title}</td>
                                             <td align="center">
-                                                <button onClick={()=>removeQuantity(p)} disabled={p.quantity > 1 ? false : true}>-</button>
+                                                <button onClick={() => removeQuantity(p)} disabled={p.quantity > 1 ? false : true}>-</button>
                                                 {p.quantity}
-                                                <button onClick={()=>addQuantity(p)}>+</button>
+                                                <button onClick={() => addQuantity(p)}>+</button>
                                             </td>
                                             <td align="center">${p.price}</td>
                                             <td align="center">${p.subTotal}</td>
@@ -56,7 +73,7 @@ const ShoppingMenu = () => {
                     </table>
                 </div>
                 <div className="shoppingMenu-main_actions">
-                    <Button variant="outlined">Confirmar Pedido</Button>
+                    <Button variant="outlined" onClick={confirmOrder}>Confirmar Pedido</Button>
                 </div>
 
             </Paper>

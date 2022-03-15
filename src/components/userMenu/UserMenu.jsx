@@ -16,7 +16,7 @@ import { ShoppingBag } from '@mui/icons-material';
 import UserOrders from '../userOrdersModal/UserOrders';
 
 export default function AccountMenu(props) {
-    const { user, PerfilUsuarioModal, logOut } = props;
+    const {user, PerfilUsuarioModal, logOut} = props;
 
     const [anchorEl, setAnchorEl] = React.useState(null);
     const open = Boolean(anchorEl);
@@ -76,10 +76,9 @@ export default function AccountMenu(props) {
                 transformOrigin={{ horizontal: 'right', vertical: 'top' }}
                 anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
             >
-
-                <PerfilUsuarioModal user={user} />
-                <UserOrders />
                 
+                <PerfilUsuarioModal user={user}/>
+                <UserOrders/>
                 <Divider />
                 <MenuItem>
                     <ListItemIcon>

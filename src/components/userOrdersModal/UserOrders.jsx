@@ -13,6 +13,8 @@ import Alert from '../alert/Alert';
 import { ListItemIcon, MenuItem } from '@mui/material';
 import { ShoppingBag } from '@mui/icons-material';
 
+import TableOrders from '../tableOrders/TableOrders';
+
 export default function UserOrders() {
     const [open, setOpen] = React.useState(false);
     const [error, setError] = React.useState(false);
@@ -47,7 +49,7 @@ export default function UserOrders() {
                     <DialogContentText>
                         En esta seccion puede ver el estado y administrar de sus pedidos.
                     </DialogContentText>
-                    =====tabla======
+                    <TableOrders/>
                 </DialogContent>
                 <DialogActions>
                     <Button onClick={handleClose}>Cerrar</Button>
