@@ -6,6 +6,7 @@ import Button from '@mui/material/Button';
 
 //Modals imports
 import Modal from '../modal/Modal';
+import UserOrders from '../userOrdersModal/UserOrders';
 import PerfilUsuarioModal from '../PerfilUsuarioModal/PerfilUsuarioModal';
 
 //icons imports
