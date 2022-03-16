@@ -18,9 +18,9 @@ const ShoppingMenu = () => {
 
         try {
             const docRef = await addDoc(collection(db, "orders"), {
-                id: "001",
-                date: "15/03/2022",
-                total: 1815
+                id: "002",
+                date: "16/03/2022",
+                total: 3400
             });
             console.log("Document written with ID: ", docRef.id);
         } catch (e) {

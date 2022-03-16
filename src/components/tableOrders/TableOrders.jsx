@@ -14,10 +14,11 @@ export default function TableOrders() {
         querySnapshot.forEach((doc) => {
             // doc.data() is never undefined for query doc snapshots
             console.log(doc.id, " => ", doc.data());
-            setOrders([...orders, doc.data()]);
+            setOrders(orders => ([...orders, doc.data()]));
             
         });
         setLoading(true);
+        console.log(orders);
     }
 
     useEffect(() => {
@@ -26,6 +27,7 @@ export default function TableOrders() {
 
     return (
         <div>
+            {orders.length}
             <table className='table'>
                 <thead>
                     <tr>
