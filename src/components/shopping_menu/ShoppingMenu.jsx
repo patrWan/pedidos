@@ -4,6 +4,8 @@ import './shoppingMenu.css'
 
 import ShoppingCartContext from '../../context/shoppingCart/ShoppingCartContext';
 
+import { getAuth } from "firebase/auth";
+
 import { db } from '../../firebase/firebaseConfig';
 import { collection, addDoc } from "firebase/firestore";
 
@@ -15,12 +17,16 @@ const ShoppingMenu = () => {
     }, [])
 
     async function confirmOrder() {
+        const auth = getAuth();
+        const user = auth.currentUser;
+        const uid = user.uid;
 
         try {
             const docRef = await addDoc(collection(db, "orders"), {
-                id: "002",
-                date: "16/03/2022",
-                total: 3400
+                userId : uid,
+                date: new Date().toLocaleString(),
+                total: total,
+                products : shoppingList,
             });
             console.log("Document written with ID: ", docRef.id);
         } catch (e) {

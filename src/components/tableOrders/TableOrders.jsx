@@ -12,8 +12,7 @@ export default function TableOrders() {
 
         const querySnapshot = await getDocs(collection(db, "orders"));
         querySnapshot.forEach((doc) => {
-            // doc.data() is never undefined for query doc snapshots
-            console.log(doc.id, " => ", doc.data());
+            console.log(doc.data());
             setOrders(orders => ([...orders, doc.data()]));
             
         });
@@ -41,7 +40,7 @@ export default function TableOrders() {
                     {loading ?
                         orders.map((x) => {
                             return (
-                                <tr key={x.id}>
+                                <tr key={x.uid}>
                                     <td>{x.id}</td>
                                     <td>{x.date}</td>
                                     <td>{x.total}</td>
