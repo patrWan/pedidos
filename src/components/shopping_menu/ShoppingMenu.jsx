@@ -9,6 +9,8 @@ import { getAuth } from "firebase/auth";
 import { db } from '../../firebase/firebaseConfig';
 import { collection, addDoc } from "firebase/firestore";
 
+import moment from 'moment';
+
 const ShoppingMenu = () => {
 
     const { shoppingList, deleteProduct, total, addQuantity, removeQuantity } = useContext(ShoppingCartContext);
@@ -23,8 +25,8 @@ const ShoppingMenu = () => {
 
         try {
             const docRef = await addDoc(collection(db, "orders"), {
-                userId : uid,
-                date: new Date().toLocaleString(),
+                userId : 'asasasasa',
+                date: moment().format(),
                 total: total,
                 products : shoppingList,
             });

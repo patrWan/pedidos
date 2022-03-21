@@ -1,19 +1,31 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useContext } from 'react'
 
 import { db } from '../../firebase/firebaseConfig';
-import { collection, getDocs } from "firebase/firestore";
+import { collection, getDocs, query, where  } from "firebase/firestore";
+
+import UserContext from '../../context/user/UserContext';
+
+import moment from 'moment';
 
 export default function TableOrders() {
+
+    const { userFrom } = useContext(UserContext);
 
     const [orders, setOrders] = useState([]);
     const [loading, setLoading] = useState(false);
 
     async function getOrders() {
 
-        const querySnapshot = await getDocs(collection(db, "orders"));
+        const q = query(collection(db, "orders"), where("userId", "==", userFrom.uid));
+
+        const querySnapshot = await getDocs(q);
         querySnapshot.forEach((doc) => {
             console.log(doc.data());
-            setOrders(orders => ([...orders, doc.data()]));
+
+            var order = doc.data();
+            order.id = doc.id;
+
+            setOrders(orders => ([...orders, order]));
             
         });
         setLoading(true);
@@ -22,6 +34,7 @@ export default function TableOrders() {
 
     useEffect(() => {
         getOrders();
+        console.log();
     }, [])
 
     return (
@@ -30,7 +43,7 @@ export default function TableOrders() {
             <table className='table'>
                 <thead>
                     <tr>
-                        <th>ID</th>
+                        <th>Numero de orden</th>
                         <th>Fecha</th>
                         <th>Total</th>
                         <th>Detalles</th>
@@ -40,9 +53,9 @@ export default function TableOrders() {
                     {loading ?
                         orders.map((x) => {
                             return (
-                                <tr key={x.uid}>
-                                    <td>{x.id}</td>
-                                    <td>{x.date}</td>
+                                <tr key={x.id}>
+                                    <td>XXXXXXXX</td>
+                                    <td>{moment(x.date).format("DD-MM-yyyy , hh:mm")}</td>
                                     <td>{x.total}</td>
                                 </tr>
                             )

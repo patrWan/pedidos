@@ -78,7 +78,7 @@ export default function AccountMenu(props) {
             >
                 
                 <PerfilUsuarioModal user={user}/>
-                <UserOrders/>
+                <UserOrders user={user}/>
                 <Divider />
                 <MenuItem>
                     <ListItemIcon>
