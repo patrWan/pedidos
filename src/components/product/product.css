@@ -7,9 +7,13 @@
     margin: 1rem;
 }
 
+.card-media {
+    min-height: 260px;
+}
 .product-img{
-    max-width:100%;
-    min-height:250px;
+    max-height: 250px;
+    min-height: 260px;
+    max-width: 345px;
 }
 
 .product-title {

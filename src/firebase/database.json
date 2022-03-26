@@ -5,27 +5,27 @@
         "title": "Producto 1",
         "description" : "Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica",
         "price" : 170,
-        "imageUrl" : "../assets/product_sample_1.jpg"  
+        "imageUrl" : "https://firebasestorage.googleapis.com/v0/b/pedidos-e5ae0.appspot.com/o/M010T018_Toothpaste_Tube_03.jpg?alt=media&token=e010b6fc-5da2-46be-a394-9c80c3307c26"  
     },
     { 
         "id" : 2, 
         "title": "Producto 2",
         "description" : "Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica",
         "price" : 170,
-        "imageUrl" : ""    
+        "imageUrl" : "https://firebasestorage.googleapis.com/v0/b/pedidos-e5ae0.appspot.com/o/jar-35.jpg?alt=media&token=9ca3778c-1359-46ff-ae9f-b39b100a0f31"    
     },
     { 
         "id" : 3, 
         "title": "Producto 3",
         "description" : "Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica",
         "price" : 170,
-        "imageUrl" : ""    
+        "imageUrl" : "https://firebasestorage.googleapis.com/v0/b/pedidos-e5ae0.appspot.com/o/217.jpg?alt=media&token=4b97e67b-52c7-4afc-91a4-8a331c57febc"    
     },
     { 
         "id" : 4, 
         "title": "Producto 4",
         "description" : "Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica",
         "price" : 170,
-        "imageUrl" : ""    
+        "imageUrl" : "https://firebasestorage.googleapis.com/v0/b/pedidos-e5ae0.appspot.com/o/3612.jpg?alt=media&token=513448ad-779c-4732-a543-9415aabba9a0"    
     }
 ]
